@@ -1,0 +1,21 @@
+<!-- Extra Paid Form -->
+<div class="pt-3 pl-3 pr-3 pb-3 bg-info text-dark font-weight-bold">
+<div class="emp-form">
+    <div class="form-group">
+        <label for="inputContact">Employee ID</label>
+        <input type="number" class="form-control border border-dark" id="inputContact" name="id" onkeyup="getUserName(this.value, inputName)" onkeydown="getUserName(this.value, inputName)" onchange="getUserName(this.value, inputName)" placeholder="Enter ID">
+    </div> 
+    <div class="form-group">
+        <label for="inputName">Name</label> 
+        <input type="text" class="form-control border border-dark" id="inputName" name="name" placeholder="Enter Name" disabled>
+    </div>
+    <div class="form-group">
+        <label for="inputSal">Rupees to Give</label>
+        <input type="number" class="form-control border border-dark" id="inputSal" name="amt" placeholder="Enter Amount">
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" id="extra-pay-btn" value="Pay" onclick="payExtra()">
+        <a href="#" onclick="showAttendence()" type="button" class="btn btn-secondary">Cancel</a>
+    </div>
+</div>
+</div>

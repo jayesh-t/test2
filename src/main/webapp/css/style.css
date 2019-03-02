@@ -1,0 +1,153 @@
+.menu-item:hover {
+    background-color: darkgray;
+    color: black;
+}
+.menu a:hover {
+    text-decoration: none;
+}
+.active {
+    background-color: aqua;
+    color: black;
+}
+.heading {
+    font-size: 1.5em;
+    color: white;
+    font-weight: 700;
+}
+.employee {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    background-color: #333;
+}
+/*
+#waiting-modal {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    background-color: lightblue;
+    font-size: 1.5em;
+    z-index: 1;
+}
+*/
+#waiting-modal {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    display: none;
+    position: fixed;
+    font-size: 20px;
+    color: white;
+    top: 0px;
+    z-index: 1;
+}
+.input-sm {
+    max-width: 70px;
+    border: 1px solid blue;
+}
+#attendence-form {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: darkgoldenrod;
+    border: 1px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.table-mb-0 {
+    margin-bottom: 0;
+}
+footer {
+    height: 100px;
+    background-color: black;
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.history {
+    background-color: teal;
+    padding: 10px;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+}
+.history-content {
+    color: yellow;
+
+}
+.history-time {
+    color: white;
+    flex-basis: max-content;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .main {
+        margin-left: 0px;
+        margin-right: 0px;
+        background-color: aliceblue;
+    }
+    .menu {
+        display: flex;
+        flex-direction: row;
+        color: white;
+    }
+    .menu-item {
+        font-size: 1.3em;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    html, body {
+        background-color: blueviolet;
+    }
+    .main {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+    .menu {
+        display: flex;
+        flex-direction: row;
+        color: white;
+    }
+    .menu-item {
+        font-size: 1.3em;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .main {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+    .menu {
+        display: flex;
+        flex-direction: row;
+        color: white;
+    }
+    .menu-item {
+        font-size: 1.3em;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+    .main {
+        margin-left: 300px;
+        margin-right: 300px;
+    }
+    .menu {
+        display: flex;
+        flex-direction: row;
+        color: white;
+    }
+    .menu-item {
+        font-size: 1.3em;
+    }
+}

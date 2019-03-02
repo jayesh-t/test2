@@ -1,0 +1,28 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>Test4</servlet-name>
+  	<display-name>Test4</display-name>
+  	<description></description>
+  	<servlet-class>Test4</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Main</servlet-name>
+  	<display-name>Main</display-name>
+  	<description></description>
+  	<servlet-class>com.jayeshtajane.salarymanager.Main</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Test4</servlet-name>
+  	<url-pattern>/Test4</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Main</servlet-name>
+  	<url-pattern>/data/*</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
