@@ -22,6 +22,7 @@ Insted of passing one by one value in constructor you can diractly pass the java
 2. jdbc.url
 3. jdbc.username
 4. jdbc.password
+
 ```
 Properties p = new Properties();
 p.put("jdbc.driver","com.mysql.jdbc.Driver");
@@ -60,6 +61,7 @@ create table emptab(
 * Step 1 - Write insert query
 * Step 2 - Create Query object using template we just created above.
 * Step 3 - execute the query
+
 ```
 // SQL query
 String sql="insert into emptab(eid,ename,esal) values(?,?,?)";
@@ -78,6 +80,7 @@ int num = query.update();
 * Step 1 - Write update query
 * Step 2 - Create Query object using template.
 * Step 3 - execute the query
+
 ```
 // SQL query
 String sql="update emptab set ename=?,esal=? where eid=?";
@@ -96,6 +99,7 @@ int num = query.update();
 * Step 1 - Write delete query
 * Step 2 - Create Query object using template.
 * Step 3 - execute the query
+
 ```
 // SQL query
 String sql="delete from emptab where eid=?";
@@ -110,9 +114,11 @@ int num = query.update();
 
 ### Performing SELECT operation
 To perform the select operation you need to write follwing files.
+
 * Model class - To store the data of row which is fetched from ResultSet.
+
 ```
-/* Employee.java*/
+// Employee.java
 
 public class Employee {
   private int eid;
@@ -125,8 +131,9 @@ public class Employee {
 ```
 
 * Mapper class - To set the data to the model class object.
+
 ```
-/* EmployeeRowMapper.java */
+// EmployeeRowMapper.java
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
