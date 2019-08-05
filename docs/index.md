@@ -183,7 +183,7 @@ System.out.println(e);
 
 ## Example code
 
-1. app.properties
+1. app.properties 1
 
 ```
 jdbc.driver=com.mysql.jdbc.Driver
