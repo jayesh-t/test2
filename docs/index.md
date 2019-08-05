@@ -4,7 +4,7 @@ Simple JDBC API provides the abstraction layer on JDBC API. It simplifies the us
 
 ## Getting Started
 
-If you want to use this API you need to add [jdbc-template.jar](https://github.com/jayeshtajane/simple-jdbc) in your project class path.
+If you want to use this API you need to add [jdbc-template.jar](https://github.com/jayeshtajane/simple-jdbc/releases) in your project class path.
 To do any JDBC operation you must need the object of JdbcTemplate.
 
 ### Creating JdbcTemplate
@@ -181,9 +181,126 @@ List<Employee> e = query.load(new EmployeeRowMapper());
 System.out.println(e);
 ```
 
+## Example code
+
+1. app.properties
+```
+jdbc.driver=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/test
+jdbc.username=root
+jdbc.password=tiger
+```
+
+2. Employee.java
+```
+public class Employee {
+  private int empId;
+  private String empName;
+  private double empSal;
+  
+  public Employee() {
+    super();
+  }
+  public int getEmpId() {
+    return empId;
+  }
+  public void setEmpId(int empId) {
+    this.empId = empId;
+  }
+  public String getEmpName() {
+    return empName;
+  }
+  public void setEmpName(String empName) {
+    this.empName = empName;
+  }
+  public double getEmpSal() {
+    return empSal;
+  }
+  public void setEmpSal(double empSal) {
+    this.empSal = empSal;
+  }
+  @Override
+  public String toString() {
+    return "Employee [empId=" + empId + ", empName=" + empName + ", empSal=" + empSal + "]";
+  }
+}
+
+```
+3. EmployeeRowMapper.java
+
+```
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import com.jayeshtajane.simplejdbc.mapper.RowMapper;
+
+public class EmployeeRowMapper implements RowMapper <Employee> {
+  public Employee mapRow(ResultSet resultSet, int rowNumber) throws SQLException {
+    Employee e = new Employee();
+    e.setEmpId(resultSet.getInt("eid")); 
+    e.setEmpName(resultSet.getString("ename"));
+    e.setEmpSal(resultSet.getDouble("esal"));
+    return e;
+  }
+}
+
+```
+
+4. Test.java
+```
+import java.util.List;
+import com.jayeshtajane.simplejdbc.JdbcTemplate;
+import com.jayeshtajane.simplejdbc.template.SimpleJdbcTemplate;
+import com.jayeshtajane.simplejdbc.template.query.Query;
+
+public class Example {
+
+    public static void main( String[] args ) {
+    	Example e = new Example();
+    	
+    	e.insertQueryExample();
+    	e.updateQueryExample();
+    	e.deleteQueryExample();
+    	e.singleSelectQueryExample();
+    	e.multipleSelectQueryExample();  	    	    	
+    }
+    
+    public void insertQueryExample() {
+    	SimpleJdbcTemplate jt = new SimpleJdbcTemplate("app.properties");
+        Query query=jt.createQuery("insert into emptab values(?,?,?)",8,"JOVO",55.5);
+        System.out.println("Rows affected : " + query.update());
+    }
+   
+    public void updateQueryExample() {
+    	SimpleJdbcTemplate jt = new SimpleJdbcTemplate("app.properties");
+    	Query query=jt.createQuery("update emptab set ename=?,esal=? where eid=?","EEE",59.5,78);
+        System.out.println("Rows affected : " + query.update());
+    }
+    
+    public void deleteQueryExample() {
+    	SimpleJdbcTemplate jt = new SimpleJdbcTemplate("app.properties");
+    	Query query=jt.createQuery("delete from emptab where eid=?",78);
+        System.out.println("Rows affected : " + query.update());
+    }
+    
+    public void singleSelectQueryExample() {
+    	SimpleJdbcTemplate jt = new SimpleJdbcTemplate("app.properties");
+    	Query query1=jt.createQuery("select * from emptab where eid=10");
+    	Employee e = query1.get(new EmployeeRowMapper());
+    	System.out.println(e);
+    }
+    
+    public void multipleSelectQueryExample() {
+    	SimpleJdbcTemplate jt = new SimpleJdbcTemplate("app.properties");
+    	Query query=jt.createQuery("select * from emptab");
+    	List<Employee> el = query.load(new EmployeeRowMapper());
+    	el.forEach(System.out::println);
+    }
+}
+```
+
 ## Referance links
 
-* [Documentation](http://www.dropwizard.io/1.0.2/docs/) - Documentation
+* [API](https://jayeshtajane.github.io/docs/simple-jdbc/index.html) - API docs
 * [GitHub](https://github.com/jayeshtajane/simple-jdbc) - GitHub repository
 
 ## Authors
