@@ -184,6 +184,7 @@ System.out.println(e);
 ## Example code
 
 1. app.properties
+
 ```
 jdbc.driver=com.mysql.jdbc.Driver
 jdbc.url=jdbc:mysql://localhost:3306/test
@@ -192,6 +193,7 @@ jdbc.password=tiger
 ```
 
 2. Employee.java
+
 ```
 public class Employee {
   private int empId;
@@ -246,6 +248,7 @@ public class EmployeeRowMapper implements RowMapper <Employee> {
 ```
 
 4. Test.java
+
 ```
 import java.util.List;
 import com.jayeshtajane.simplejdbc.JdbcTemplate;
